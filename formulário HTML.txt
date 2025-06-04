@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Contato Louvre Home Flats</title>
+
+  <!--693269516778984-->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '693269516778984');
+    fbq('track', 'PageView');
+  </script>
+  <noscript>
+    <img height="1" width="1" style="display:none"
+         src="https://www.facebook.com/tr?id=693269516778984&ev=PageView&noscript=1"/>
+  </noscript>
+  <!-- End Facebook Pixel Code -->
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #000000; /* Preto profundo */
+    }
+    .container {
+      background: #1a1a1a; /* Fundo escuro suave */
+      padding: 24px;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+      width: 320px;
+    }
+    h1 {
+      font-size: 20px;
+      margin-bottom: 16px;
+      color: #D4AF37; /* Dourado metálico */
+      text-align: center;
+    }
+    label {
+      display: block;
+      margin-top: 12px;
+      color: #FFFFFF; /* Texto branco */
+      font-size: 14px;
+    }
+    input, select {
+      width: 100%;
+      padding: 8px;
+      margin-top: 4px;
+      border: 1px solid #555555;
+      border-radius: 4px;
+      font-size: 14px;
+      background: #2a2a2a; /* Fundo interno escuro */
+      color: #FFFFFF; /* Texto interno branco */
+    }
+    button {
+      width: 100%;
+      margin-top: 20px;
+      padding: 10px;
+      background-color: #D4AF37; /* Dourado metálico */
+      color: #000000; /* Texto preto */
+      font-size: 16px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #b7972f; /* Dourado mais escuro ao passar o mouse */
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Fale com Consultor VIP</h1>
+    <form id="leadForm">
+      <label for="inputNome">Nome completo:</label>
+      <input type="text" id="inputNome" name="nome" placeholder="Seu nome" required />
+
+      <label for="inputContato">E-mail ou Telefone:</label>
+      <input type="text" id="inputContato" name="contato" placeholder="email@exemplo.com ou (11) 99999-9999" required />
+
+      <label for="inputObjetivo">Você busca:</label>
+      <select id="inputObjetivo" name="objetivo" required>
+        <option value="">Escolha uma opção</option>
+        <option value="Investir">Investir</option>
+        <option value="Morar">Morar</option>
+      </select>
+
+      <button type="submit">Enviar para o WhatsApp</button>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById('leadForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      // Dispara o evento de conversão "Lead"
+      fbq('track', 'Lead');
+
+      const nome     = encodeURIComponent(document.getElementById('inputNome').value.trim());
+      const contato  = encodeURIComponent(document.getElementById('inputContato').value.trim());
+      const objetivo = encodeURIComponent(document.getElementById('inputObjetivo').value);
+      const msg      = `Olá, meu nome é ${nome}. Meu contato é ${contato}. Eu desejo: ${objetivo}.`;
+
+      // Substitua por seu número de WhatsApp no formato internacional (ex: 5511999999999)
+      const numeroWhats = '554796279125';
+      const urlWhats = `https://wa.me/${numeroWhats}?text=${msg}`;
+
+      // Pequeno atraso para garantir que o Pixel envie o evento
+      setTimeout(function() {
+        window.location.href = urlWhats;
+      }, 200);
+    });
+  </script>
+</body>
+</html>
