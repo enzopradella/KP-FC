@@ -2,9 +2,13 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <title>Contato Louvre Home Flats</title>
+  <title>Contato KP & FC</title>
 
-  <!--693269516778984-->
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500&family=Playfair+Display:ital,wght@1,700&display=swap" rel="stylesheet" />
+
+  <!-- 693269516778984 -->
   <script>
     !function(f,b,e,v,n,t,s)
     {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -24,71 +28,134 @@
   <!-- End Facebook Pixel Code -->
 
   <style>
+    /* Reset básico */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      height: 100%;
+    }
+
     body {
-      font-family: Arial, sans-serif;
       display: flex;
       align-items: center;
       justify-content: center;
-      height: 100vh;
-      margin: 0;
-      background-color: #000000; /* Preto profundo */
+      background-color: #000000;
+      font-family: 'Lora', serif;
+      color: #ffffff;
     }
+
     .container {
-      background: #1a1a1a; /* Fundo escuro suave */
-      padding: 24px;
-      border-radius: 8px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.5);
-      width: 320px;
-    }
-    h1 {
-      font-size: 20px;
-      margin-bottom: 16px;
-      color: #D4AF37; /* Dourado metálico */
+      background: #1f1f1f;
+      border: 2px solid #D4AF37;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.7);
+      max-width: 380px;
+      width: 90%;
+      padding: 32px 24px 24px;
       text-align: center;
     }
-    label {
+
+    .logo {
+      margin-bottom: 20px;
+    }
+
+    .logo h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 36px;
+      font-style: italic;
+      color: #D4AF37;
+      letter-spacing: 1px;
+    }
+
+    .logo h1 span {
+      font-size: 32px;
+      font-weight: 700;
+    }
+
+    .subtitle {
+      font-family: 'Lora', serif;
+      font-size: 16px;
+      margin-bottom: 32px;
+      line-height: 1.4;
+      color: #e0e0e0;
+    }
+
+    form label {
       display: block;
-      margin-top: 12px;
-      color: #FFFFFF; /* Texto branco */
+      text-align: left;
+      margin-bottom: 6px;
       font-size: 14px;
+      color: #cccccc;
     }
-    input, select {
+
+    form input,
+    form select {
       width: 100%;
-      padding: 8px;
-      margin-top: 4px;
-      border: 1px solid #555555;
-      border-radius: 4px;
+      padding: 10px 12px;
+      margin-bottom: 18px;
+      border: 1px solid #444444;
+      border-radius: 6px;
+      background: #2b2b2b;
+      color: #ffffff;
       font-size: 14px;
-      background: #2a2a2a; /* Fundo interno escuro */
-      color: #FFFFFF; /* Texto interno branco */
+      font-family: 'Lora', serif;
     }
+
+    form input::placeholder {
+      color: #888888;
+    }
+
     button {
       width: 100%;
-      margin-top: 20px;
-      padding: 10px;
-      background-color: #D4AF37; /* Dourado metálico */
-      color: #000000; /* Texto preto */
+      padding: 12px;
+      background-color: #D4AF37;
+      color: #000000;
+      font-family: 'Playfair Display', serif;
       font-size: 16px;
       border: none;
-      border-radius: 4px;
+      border-radius: 6px;
       cursor: pointer;
+      transition: background-color 0.2s ease;
     }
+
     button:hover {
-      background-color: #b7972f; /* Dourado mais escuro ao passar o mouse */
+      background-color: #b7972f;
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1>Fale com Consultor VIP</h1>
+    <div class="logo">
+      <h1><span>KP</span> &amp; <span>FC</span></h1>
+    </div>
+    <div class="subtitle">
+      Descubra um serviço exclusivo que eleva seu investimento ao próximo nível
+    </div>
+
     <form id="leadForm">
-      <label for="inputNome">Nome completo:</label>
-      <input type="text" id="inputNome" name="nome" placeholder="Seu nome" required />
+      <label for="inputNome">Nome completo</label>
+      <input
+        type="text"
+        id="inputNome"
+        name="nome"
+        placeholder="Seu nome"
+        required
+      />
 
-      <label for="inputContato">E-mail ou Telefone:</label>
-      <input type="text" id="inputContato" name="contato" placeholder="email@exemplo.com ou (11) 99999-9999" required />
+      <label for="inputContato">E-mail ou Telefone</label>
+      <input
+        type="text"
+        id="inputContato"
+        name="contato"
+        placeholder="email@exemplo.com ou (11) 99999-9999"
+        required
+      />
 
-      <label for="inputObjetivo">Você busca:</label>
+      <label for="inputObjetivo">Você busca</label>
       <select id="inputObjetivo" name="objetivo" required>
         <option value="">Escolha uma opção</option>
         <option value="Investir">Investir</option>
@@ -103,19 +170,23 @@
     document.getElementById('leadForm').addEventListener('submit', function(e) {
       e.preventDefault();
 
-      // Dispara o evento de conversão "Lead"
       fbq('track', 'Lead');
 
-      const nome     = encodeURIComponent(document.getElementById('inputNome').value.trim());
-      const contato  = encodeURIComponent(document.getElementById('inputContato').value.trim());
-      const objetivo = encodeURIComponent(document.getElementById('inputObjetivo').value);
-      const msg      = `Olá, meu nome é ${nome}. Meu contato é ${contato}. Eu desejo: ${objetivo}.`;
+      const nome = encodeURIComponent(
+        document.getElementById('inputNome').value.trim()
+      );
+      const contato = encodeURIComponent(
+        document.getElementById('inputContato').value.trim()
+      );
+      const objetivo = encodeURIComponent(
+        document.getElementById('inputObjetivo').value
+      );
+      const msg = Olá, meu nome é ${nome}. Meu contato é ${contato}. Eu desejo: ${objetivo}.;
 
       // Substitua por seu número de WhatsApp no formato internacional (ex: 5511999999999)
-      const numeroWhats = '554796279125';
-      const urlWhats = `https://wa.me/${numeroWhats}?text=${msg}`;
+      const numeroWhats = '5547996279125';
+      const urlWhats = https://wa.me/${numeroWhats}?text=${msg};
 
-      // Pequeno atraso para garantir que o Pixel envie o evento
       setTimeout(function() {
         window.location.href = urlWhats;
       }, 200);
